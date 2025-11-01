@@ -1,3 +1,40 @@
+### main.tf
+
+```
+module "kubernetes_cluster" {
+  source = "./modules/kubernetes_cluster"
+
+  # Kubernetes Cluster Configuration
+  resource_group_name     = var.resource_group_name
+  kubernetes_cluster_name = var.kubernetes_cluster_name
+  dns_prefix              = var.dns_prefix
+
+  # System node
+  default_node_pools = [
+    {
+      name       = "system"
+      node_count = 1
+      vm_size    = "Standard_B2s"
+    }
+  ]
+  # User node
+  user_node_pools = [
+    {
+      name       = "user"
+      node_count = 1
+      vm_size    = "Standard_B2s"
+    }
+  ]
+
+  tags = {
+    environment = "development"
+  }
+}
+```
+
+### variables.tf
+
+```
 # ================================
 # Kubernetes Cluster Configuration Variables
 # ================================
@@ -39,3 +76,4 @@ variable "user_node_pools" {
   }))
   default = []
 }
+```

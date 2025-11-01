@@ -53,4 +53,38 @@ module "network_security_group" {
       destination_address_prefix = "*"
     }
   ]
+
+  tags = {
+    environment = "development"
+  }
+}
+
+module "kubernetes_cluster" {
+  source = "./modules/kubernetes_cluster"
+
+  # Kubernetes Cluster Configuration
+  resource_group_name     = "rg-tst-anmew"
+  kubernetes_cluster_name = "aks-tst-anmew"
+  dns_prefix              = "aks"
+
+  # System node
+  default_node_pools = [
+    {
+      name       = "system"
+      node_count = 1
+      vm_size    = "Standard_B2s"
+    }
+  ]
+  # User node
+  user_node_pools = [
+    {
+      name       = "user"
+      node_count = 1
+      vm_size    = "Standard_B2s"
+    }
+  ]
+
+  tags = {
+    environment = "development"
+  }
 }
