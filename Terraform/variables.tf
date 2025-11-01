@@ -29,3 +29,12 @@ variable "tags" {
   description = "(Optional) A mapping of tags which should be assigned to the Resource Group."
   default     = {}
 }
+
+# ================================
+# Virtual Network Configuration Variables
+# ================================
+# REQUIRED
+variable "virtual_network_name" {
+  type        = string
+  description = "(Required) The name of the virtual network. Changing this forces a new resource to be created."
+}

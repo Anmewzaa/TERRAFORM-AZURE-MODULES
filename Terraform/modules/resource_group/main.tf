@@ -1,3 +1,6 @@
+# ================================
+# Resource Group Resource
+# ================================
 resource "azurerm_resource_group" "this" {
   # REQUIRED
   name     = var.resource_group_name
