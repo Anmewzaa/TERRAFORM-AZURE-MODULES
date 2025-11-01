@@ -12,6 +12,7 @@ data "azurerm_network_security_group" "this" {
 
 # ================================
 # Virtual Network Resource
+# ref : https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network
 # ================================
 resource "azurerm_virtual_network" "this" {
   name                = var.virtual_network_name

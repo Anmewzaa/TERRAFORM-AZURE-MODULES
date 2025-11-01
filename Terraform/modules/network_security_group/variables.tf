@@ -1,8 +1,8 @@
 # ================================
-# Virtual Network Configuration Variables
+# Network Security Group Configuration Variables
 # ================================
 # REQUIRED
-variable "virtual_network_name" {
+variable "network_security_group_name" {
   type        = string
   description = "(Required) The name of the virtual network. Changing this forces a new resource to be created."
 }
@@ -10,19 +10,19 @@ variable "resource_group_name" {
   type        = string
   description = "(Required) The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created."
 }
-variable "address_space" {
-  type        = list(string)
-  description = "(Required)"
-  default     = []
-}
-variable "subnets" {
+variable "security_rules" {
   type = list(object({
-    name             = string
-    address_prefixes = list(string)
-    security_group   = optional(string)
+    name                       = string
+    priority                   = number
+    direction                  = string
+    access                     = string
+    protocol                   = string
+    source_port_range          = string
+    destination_port_range     = string
+    source_address_prefix      = string
+    destination_address_prefix = string
   }))
-  description = "List of subnets (inline on VNet)"
-  default     = []
+  description = "(Required) A list of security rules to apply to the network security group."
 }
 variable "tags" {
   type        = map(string)
