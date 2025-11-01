@@ -110,7 +110,7 @@ module "key_vault" {
 
   # Key Vault Configuration
   resource_group_name  = module.resource_group.azurerm_resource_group_name
-  key_vault_name = "kv-tst-anmew"
+  key_vault_name = "kv-tst-anmew-01"
 
   sku_name = "standard"
 }

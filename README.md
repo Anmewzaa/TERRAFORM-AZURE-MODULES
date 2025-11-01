@@ -6,3 +6,5 @@
 | `azurerm_virtual_network`        | Module for creating Azure Virtual Networks with subnets and optional NSGs | [README](./Terraform/modules/virtual_network/EXAMPLE.MD)        |
 | `azurerm_network_security_group` | Module for creating NSGs and security rules                               | [README](./Terraform/modules/network_security_group/EXAMPLE.md) |
 | `azurerm_kubernetes_cluster`     | Module for creating AKS clusters with default and user node pools         | [README](./Terraform/modules/kubernetes_cluster/EXAMPLE.MD)     |
+| `azurerm_storage_account`        | Module for creating Azure ฆtorage Acount                                  | [README](./Terraform/modules/storage_account/EXAMPLE.MD)        |
+| `azurerm_key_vault`              | Module for creating Azure Key Vault                                       | [README](./Terraform/modules/key_vault/EXAMPLE.MD)              |
