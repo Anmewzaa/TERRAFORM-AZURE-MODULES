@@ -38,4 +38,20 @@ variable "account_tier" {
     condition     = contains(["Standard", "Premium"], var.account_tier)
     error_message = "account_tier must be either 'Standard' or 'Premium'"
   }
+}
+
+variable "account_replication_type" {
+  description = "Specifies the replication type for the Azure Storage Account. Valid options: LRS, GRS, RAGRS, ZRS, GZRS, RA-GZRS."
+  type        = string
+  default     = "LRS"
+  validation {
+    condition     = contains(["LRS", "GRS", "RAGRS", "ZRS", "GZRS", "RA-GZRS"], var.account_replication_type)
+    error_message = "account_replication_type must be one of: LRS, GRS, RAGRS, ZRS, GZRS, RA-GZRS"
+  }
+}
+variable "tags" {
+  type        = map(string)
+  description = "(Optional) A mapping of tags which should be assigned to the Resource Group."
+  default     = {}
+}
 ```
