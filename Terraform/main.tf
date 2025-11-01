@@ -31,6 +31,7 @@ module "resource_group" {
 #   tags = {
 #     environment = "development"
 #   }
+
 # }
 
 # module "network_security_group" {
@@ -89,17 +90,27 @@ module "resource_group" {
 #   }
 # }
 
-module "storage_account" {
-  source = "./modules/storage_account"
+# module "storage_account" {
+#   source = "./modules/storage_account"
 
-  # Storage Account Configuration
-  resource_group_name      = "rg-tst-anmew"
-  storage_account_name     = "statstanmew"
-  
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
+#   # Storage Account Configuration
+#   resource_group_name  = "rg-tst-anmew"
+#   storage_account_name = "statstanmew"
 
-  tags = {
-    environment = "development"
-  }
+#   account_tier             = "Standard"
+#   account_replication_type = "LRS"
+
+#   tags = {
+#     environment = "development"
+#   }
+# }
+
+module "key_vault" {
+  source = "./modules/key_vault"
+
+  # Key Vault Configuration
+  resource_group_name  = module.resource_group.azurerm_resource_group_name
+  key_vault_name = "kv-tst-anmew"
+
+  sku_name = "standard"
 }
