@@ -26,8 +26,8 @@ resource "azurerm_kubernetes_cluster" "this" {
   }
 
   network_profile {
-    network_plugin     = "kubenet"
-    network_policy     = "calico"
+    network_plugin = "kubenet"
+    network_policy = "calico"
   }
 
   identity {
